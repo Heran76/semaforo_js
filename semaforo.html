@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .semaforo {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 500px;
+            width: 200px;
+            border: 3px solid black;
+            border-radius: 10px;
+            margin: 0 auto;
+            margin-top: 100px;
+          }
+          
+          .luz {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+          }
+          
+          .rojo {
+            background-color: red;
+          }
+          
+          .amarillo {
+            background-color: yellow;
+          }
+          
+          .verde {
+            background-color: green;
+          }
+          
+          .opacidad-baja {
+            opacity: 0.1;
+          }
+          
+    </style>
+</head>
+<body>
+    <div class="semaforo">
+        <div class="luz rojo"></div>
+        <div class="luz amarillo"></div>
+        <div class="luz verde"></div>
+      </div>
+      <script>
+const rojo = document.querySelector(".rojo");
+const amarillo = document.querySelector(".amarillo");
+const verde = document.querySelector(".verde");
+
+let estado = "rojo";
+
+function cambiarLuz() {
+  if (estado === "rojo") {
+    rojo.classList.add("opacidad-baja");
+    amarillo.classList.remove("opacidad-baja");
+    estado = "amarillo";
+  } else if (estado === "amarillo") {
+    amarillo.classList.add("opacidad-baja");
+    verde.classList.remove("opacidad-baja");
+    estado = "verde";
+  } else if (estado === "verde") {
+    verde.classList.add("opacidad-baja");
+    rojo.classList.remove("opacidad-baja");
+    estado = "rojo";
+  }
+
+  setTimeout(cambiarLuz, 5000); // Cambiar de color cada 5 segundos
+}
+
+// Iniciar el ciclo del semáforo
+cambiarLuz();
+
+      </script>
+</body>
+</html>
+  
+
+
+
+
+
+
